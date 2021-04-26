@@ -44,9 +44,15 @@ SQL> insert into sales values(1030,1700,3500,3890,5980);
 SQL> insert into sales values(1000,2000,3000,3950,5050);
 
 #select statements
+
 select c1 where c3>3000;
 
 select c1,c3,c5 from stocks where c2=1975;
 
 select c1,r2 from stocks, sales where c1>r2;
 
+select r2,r4,r5 from sales where r5=5000 or r4=4050;
+
+select sum(r2) from sales;
+
+select avg(c1),sum(r2),min(r4),max(r5) from stocks, sales;

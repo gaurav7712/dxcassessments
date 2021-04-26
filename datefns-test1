@@ -2,3 +2,51 @@ SELECT sysdate from dual; #only date
 select to_char(sysdate,'DD/MM/YYYY') "date" from dual; #date ddmmyyyy
 select to_char(sysdate,'DAY') from dual; #name of current day
 select to_char(sysdate+10) from dual; #date 10 days from now
+
+
+#stocks table
+create table stocks(
+  2  c1 varchar2(10),
+  3  c2 varchar2(10),
+  4  c3 varchar2(10),
+  5  c4 varchar2(10),
+  6  c5 varchar2(10)
+  7  );
+ 
+#sales table
+create table sales(
+  2  r1 varchar2(10),
+  3  r2 varchar2(10),
+  4  r3 varchar2(10),
+  5  r4 varchar2(10),
+  6  r5 varchar2(10)
+  7  );
+
+
+insert into stocks values(1000,2000,3000,4000,5000);
+
+SQL> insert into stocks values(1005,2005,2095,4005,4095);
+
+SQL> insert into stocks values(1000,2000,3000,3950,5050);
+
+SQL> insert into stocks values(990,1975,2900,4050,6050);
+
+SQL> insert into stocks values(1030,1700,3500,3890,5980);
+
+SQL> insert into sales values(1005,2005,2095,4005,4095);
+
+SQL> insert into sales values(990,1975,2900,4050,6050);
+
+SQL> insert into sales values(1000,2000,3000,4000,5000);
+
+SQL> insert into sales values(1030,1700,3500,3890,5980);
+
+SQL> insert into sales values(1000,2000,3000,3950,5050);
+
+#select statements
+select c1 where c3>3000;
+
+select c1,c3,c5 from stocks where c2=1975;
+
+select c1,r2 from stocks, sales where c1>r2;
+

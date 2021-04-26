@@ -1,0 +1,4 @@
+SELECT sysdate from dual; #only date
+select to_char(sysdate,'DD/MM/YYYY') "date" from dual; #date ddmmyyyy
+select to_char(sysdate,'DAY') from dual; #name of current day
+select to_char(sysdate+10) from dual; #date 10 days from now

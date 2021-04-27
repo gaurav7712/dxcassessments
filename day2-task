@@ -1,0 +1,111 @@
+Task 1:
+
+
+
+
+create table employee(    #creating employee table
+    fname varchar(20),
+    mname varchar(20),
+    lname varchar(20),
+    age int check(age between 0 and 50),
+    city varchar(20) check(city like 'B%'),
+    desig varchar(20) check(desig like '%manager'),
+    empid varchar(5) check(length(empid)=5),
+    dob date
+  );
+  
+  Table created.
+  
+  insert into employee values('Lamar','m','lol',32,'Boston','sales manager','emp01','04-apr-1989'); #insert statements
+  
+  1 row created.
+  
+  insert into employee values('Kendrick','l','Rofl',35,'Birmingham','Intern manager','emp55','22-aug-1986'); #insert statements
+
+1 row created.
+
+  insert into employee values('Elai','I','Gordon',46,'Buenos Aires','Automation manager','emp00','01-feb-1975'); #insert statements
+
+1 row created.
+
+  insert into employee values('Carlos','Dom','Slim',22,'Barcelona','General manager','emp20','19-sep-1998'); #insert statements
+
+1 row created.
+
+  insert into employee values('Carl','Vince','David',50,'Budapest','Board manager','emp05','23-sep-1971'); #insert statements
+
+1 row created.
+
+  update employee set city='Brisbane' where empid='emp01';
+
+1 row updated.
+
+  select * from employee;
+
+FNAME                MNAME                LNAME                       AGE
+-------------------- -------------------- -------------------- ----------
+CITY                 DESIG                EMPID DOB
+-------------------- -------------------- ----- ---------
+Lamar                m                    lol                          32
+Brisbane             sales manager        emp01 04-APR-89
+
+Kendrick             l                    Rofl                         35
+Birmingham           Intern manager       emp55 22-AUG-86
+
+Elai                 I                    Gordon                       46
+Buenos Aires         Automation manager   emp00 01-FEB-75
+
+
+FNAME                MNAME                LNAME                       AGE
+-------------------- -------------------- -------------------- ----------
+CITY                 DESIG                EMPID DOB
+-------------------- -------------------- ----- ---------
+Carlos               Dom                  Slim                         22
+Barcelona            General manager      emp20 19-SEP-98
+
+Carl                 Vince                David                        50
+Budapest             Board manager        emp05 23-SEP-71
+
+
+SQL> delete from employee where fname='Kendrick';
+
+1 row deleted.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> delete from employee;
+
+4 rows deleted.
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> select fname,mname,lname,to_char(dob,'dd/mm/yyyy')as DOB from employee; #employee names and dob
+
+FNAME                MNAME                LNAME                DOB
+-------------------- -------------------- -------------------- ----------
+Lamar                m                    lol                  04/04/1989
+Elai                 I                    Gordon               01/02/1975
+Carlos               Dom                  Slim                 19/09/1998
+Carl                 Vince                David                23/09/1971
+
+
+select substr(fname,1,1)||'.'||substr(mname,1,1)||'.'||lname from employee;  #show employee name as fname.mname.lastname with fname and mname only being initials
+
+SUBSTR(FNAME,1,1)||'.'||SUBSTR
+------------------------------
+L.m.lol
+E.I.Gordon
+C.D.Slim
+C.V.David
+
+
+
+Task 2:
+
+
+
+

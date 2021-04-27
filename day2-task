@@ -107,29 +107,55 @@ C.V.David
 Task 2:
 
 
-create table timetable 
-(
-day varchar(10),
-sess int ,
-faculty  varchar(20),
-sem int,
-room varchar(10),
-subject varchar(20)
-);
+SQL> create table ttable
+  2  (Day char(10) ,
+  3  sess int,
+  4  faculty char(15),
+  5  sem int,
+  6  room varchar(5),
+  7  subject char(10),
+  8  unique(Day,sess,faculty),
+  9  unique(day,sess,sem),
+ 10  unique(day,sess,room));
 
-alter table timetable add constraint timet unique (sess,room) ;
+Table created.
 
-insert into timetable values('mon' , 1 ,'john' ,7,'r1','java');
+SQL>  insert into ttable values('mon',1,'John',7,'r1','Java');
 
-insert into timetable values('mon' , 1 ,'cena' ,5,'r2','java');
+1 row created.
 
-insert into timetable values('mon' , 2 ,'cena' ,7,'r2','java');
+SQL> insert into ttable values('mon',1,'John',5,'r2','testing');
+insert into ttable values('mon',1,'John',5,'r2','testing')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (DXCTEST.SYS_C007013) violated
 
-insert into timetable values('mon' , 2 ,'guna' ,4,'r1','dbms');
 
- insert into timetable values('mon' , 1 ,'guna' ,7,'r1','dbms');
+SQL> insert into TTABLE values('mon',1,'cena',7,'r3','dbms');
+insert into TTABLE values('mon',1,'cena',7,'r3','dbms')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (DXCTEST.SYS_C007014) violated
 
-insert into timetable values('tues' , 2 ,'guna' ,5,'r3','os');
 
-select * from timetable;
+SQL> insert into ttable values('mon',1,'rock',4,'r1','ds');
+insert into ttable values('mon',1,'rock',4,'r1','ds')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (DXCTEST.SYS_C007015) violated
 
+
+SQL> insert into ttable values('mon',1,'john',7,'r1','java');
+insert into ttable values('mon',1,'john',7,'r1','java')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (DXCTEST.SYS_C007014) violated
+
+
+SQL>  insert into ttable values('tue',1,'john',7,'r1','java');
+
+1 row created.
+
+SQL> insert into ttable values('mon',2,'john',7,'r1','java');
+
+1 row created.

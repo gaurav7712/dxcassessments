@@ -107,5 +107,29 @@ C.V.David
 Task 2:
 
 
+create table timetable 
+(
+day varchar(10),
+sess int ,
+faculty  varchar(20),
+sem int,
+room varchar(10),
+subject varchar(20)
+);
 
+alter table timetable add constraint timet unique (sess,room) ;
+
+insert into timetable values('mon' , 1 ,'john' ,7,'r1','java');
+
+insert into timetable values('mon' , 1 ,'cena' ,5,'r2','java');
+
+insert into timetable values('mon' , 2 ,'cena' ,7,'r2','java');
+
+insert into timetable values('mon' , 2 ,'guna' ,4,'r1','dbms');
+
+ insert into timetable values('mon' , 1 ,'guna' ,7,'r1','dbms');
+
+insert into timetable values('tues' , 2 ,'guna' ,5,'r3','os');
+
+select * from timetable;
 

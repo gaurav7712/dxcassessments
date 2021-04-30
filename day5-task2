@@ -1,0 +1,48 @@
+import java.io.*;
+import java.util.Scanner;
+public class StrChar
+{
+    boolean isEqual(char c1 , char c2)
+    {
+    if(c1==c2)
+        return true;
+    else if(c1-c2==32)
+        return true;
+    else if(c1-c2==32)
+        return true
+    return false;
+    }
+
+    boolean isEqual(String str1 , String str2)
+    {   boolean b=true;
+        for(int i=0;i<str1.length();i++)
+        {
+            char c1=str1.charAt(i);
+            char c2=str2.charAt(i);
+            b=isEqual(c1,c2);
+            if(b==false)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void main(String []args)
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter two strings to be compared");
+        String s1=sc.nextLine();
+        String s2=sc.nextLine();
+        if(isEqual(s1,s2)==true)
+            System.out.println("Strings are equal");
+        else
+            System.out.println("Strings are not equal");
+        System.out.println("enter two charecters to be compared");
+        char c1=sc.next();
+        char c2=sc.next();
+        if(isEqual(c1,c2)==true)
+            System.out.println("Strings are equal");
+        else
+            System.out.println("Strings are not equal");
+    }
+}

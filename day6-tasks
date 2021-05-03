@@ -1,0 +1,117 @@
+TASK 1:
+Q1)   int sum(int... x){
+System.out.println("sum meth "+x[6]);
+return 10;
+}
+
+ // return the total sum of the args
+// print the max value
+// print the min
+// print no of ODD and even digits
+//print count numbers div by 3
+
+package test;
+
+public class myjavaprog 
+{
+	static int sum(int ...x)
+	{
+		int add=0,min,max,ec=0,oc=0,th=0;
+		min=x[0] ;
+		max=x[0];
+		for(int i=0;i<x.length;i++)
+		{
+			System.out.println(x[i]);
+			add=add+x[i];
+			if(x[i]<min)
+				min=x[i];
+			if(x[i]>max)
+				max=x[i];
+			if(x[i]%2==1)
+				oc++;
+			if(x[i]%2==0)
+				ec++;
+			if(x[i]%3==0)
+				th++;
+		}
+		System.out.println("Sum of all arguments is: "+add+"\nMax: \t"+max+"\nMin: \t"+min+"\nNo. of even numbers is: "+ec+"\nNo. of odd numbers is:"+oc+"\nNo. divisible by 3: "+th);;
+		return 0;
+	}
+	
+	
+	public static void main(String[] args) 
+	{
+		sum(1,2,3,4);
+		sum(2,5,12,54,98);
+	}
+
+}
+
+TASK 2:
+Q2) reverse a given string 
+
+Example :  Hello
+
+output: olleH
+
+import java.lang.String;
+public class myjavaprog 
+{
+	static String reverse(String s) 
+	{
+		String rev = new String();
+		for(int i=s.length()-1; i>=0; i--)
+			rev = rev + s.charAt(i);
+		return rev;
+	}
+	public static void main(String[] args) 
+	{
+		String str=new String("Hello");
+		String rev=new String();
+		rev=reverse(str);
+		System.out.println(rev);
+	}
+
+}
+
+
+TASK 3:
+
+q3) reverse a given string and maintain its caps position
+
+EX:  
+input ->  HeLloWorld
+output-DlRowOlleh
+
+input ->  MyJavaWorld
+output-DlRoWaVajym
+
+package test;
+import java.util.Scanner;
+public class myjavaprog 
+{
+	static String reverse(String s) 
+	{
+		String rev="";
+		char[] a=s.toCharArray();
+		int last=0;
+		for(int i=a.length-1;i>=0;i--)
+		{
+			if((a[last]>='A'&&a[last]<='Z')&&(a[i]>='a'&&a[i]<='z'))
+				rev=rev+(char)(a[i]-32);
+			else if((a[i]>='A'&&a[i]<='Z')&&(a[last]>='a'&&a[last]<='z'))
+				rev=rev+(char)(a[i]+32);
+			else
+				rev=rev+(char)a[i];
+			last++;
+		}
+		return rev;
+	}
+	public static void main(String[] args) 
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter string");
+		String str=in.nextLine();
+		System.out.println(reverse(str));
+	}
+}

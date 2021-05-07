@@ -1,0 +1,109 @@
+create with all getter setter cont and to string
+
+// create showroom class which has cars in it . no duplicate car can be stored
+
+ShowRoom ,  Car ->
+name
+cars
+
+// create 2 showroom  objects ..
+
+// accept showroom name from the cmd and display cars in the showroom
+
+Car.java
+package com.mycollections;
+
+public class Car{
+	private String name;
+	private String type;
+	private String fuelType;
+	private String bodyType;
+	private String showroomName;
+	public String getShowroomName() {
+		return showroomName;
+	}
+	public void setShowroomName(String showroomName) {
+		this.showroomName = showroomName;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getFuelType() {
+		return fuelType;
+	}
+	public void setFuelType(String fuelType) {
+		this.fuelType = fuelType;
+	}
+	public String getBodyType() {
+		return bodyType;
+	}
+	public void setBodyType(String bodyType) {
+		this.bodyType = bodyType;
+	}
+	public Car(String name, String type, String fuelType, String bodyType,
+			String showroomName) {
+		super();
+		this.name = name;
+		this.type = type;
+		this.fuelType = fuelType;
+		this.bodyType = bodyType;
+		this.showroomName = showroomName;
+	}
+	public Car() {
+	}
+@Override
+	public String toString() {
+		return "Car [name=" + name + ", type=" + type + ", fuelType=" + fuelType
+			+ ", bodyType=" + bodyType + ", showroomName=" + showroomName + "]";
+}
+}
+
+
+Showroom.java
+package com.mycollections;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Showroom {
+
+public static void main(String[] args) {
+	Car car1=new Car("BMW","7 Series","Diesel","Sedan","S1");
+	Car car2=new Car("Audi","A4","Petrol","Sedan","S1");
+	ArrayList<Car> S1Cars=new ArrayList<>();
+	S1Cars.add(car1);
+	S1Cars.add(car2);
+	HashSet<Car> newS1=new HashSet<Car>(S1Cars);
+	Car car3=new Car("BMW","8 Series","Petrol","Sedan","S2");
+	Car car4=new Car("Audi","A6","Diesel","Sedan","S2");
+	Car car5=new Car("Audi","A6","Diesel","Sedan","S2");
+	ArrayList<Car> S2Cars=new ArrayList<>();
+	S2Cars.add(car3);
+	S2Cars.add(car4);
+	S2Cars.add(car4);
+	HashSet<Car> newS2=new HashSet<Car>(S2Cars);
+	Map<String , HashSet<Car>> showrooms=new HashMap<String, HashSet<Car>>();
+	showrooms.put("S1",newS1);
+	showrooms.put("S2",newS2);
+	System.out.println("Enter showroom name to see the list of Cars");
+	Scanner sc=new Scanner(System.in);
+	String showroom=sc.nextLine();
+	HashSet<Car> Showroom1=showrooms.get(showroom);
+	for(Car car:Showroom1)
+	{
+		System.out.println(car);
+	}
+}
+}

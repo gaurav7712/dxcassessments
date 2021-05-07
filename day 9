@@ -6,6 +6,8 @@
 
 Table created.
 
+-------------------------------------------------
+
 Dbconn.java
 package com.myproj.dbutil;
 
@@ -27,6 +29,7 @@ public class Dbconn {
 	}
 }
 
+-----------------------------------------------------
 
 Player.java
 package com.myproj.model;
@@ -78,6 +81,8 @@ public class Player {
 	}
 }
 
+--------------------------------------------------------------------------------
+
 PlayerDao.java
 package com.myproj.dao;
 
@@ -110,6 +115,7 @@ public class PlayerDao {
 	}
 }
 
+-------------------------------------------------------------------
 
 PlayerService.java
 package com.myproj.service;
